@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "PositionReporter.h"
-#include <Gameframework/Actor.h>
+#include "Gameframework/Actor.h"
 
 
 // Sets default values for this component's properties
