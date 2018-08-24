@@ -2,6 +2,7 @@
 
 #include "Grabber.h"
 #include "GameFramework/Controller.h"
+#include "Runtime/Engine/Public/DrawDebugHelpers.h"
 
 #define OUT
 // Sets default values for this component's properties
@@ -36,14 +37,28 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 		OUT PlayeViewPointLocation,
 		OUT PlayerViewPointRotation
 	);
-		
+
 
 	// TODO log out to test
-	UE_LOG(LogTemp, Warning, TEXT("Location: %s, Rotation: %s"),
+	/*UE_LOG(LogTemp, Warning, TEXT("Location: %s, Rotation: %s"),
 		*PlayeViewPointLocation.ToString() ,
 		*PlayerViewPointRotation.ToString()
-	);
+	);*/
 
+	FVector LineTraceEnd = PlayeViewPointLocation + PlayerViewPointRotation.Vector() * Reach;
+
+	// draw a red line
+
+	DrawDebugLine(
+		GetWorld(),
+		PlayeViewPointLocation,
+		LineTraceEnd,
+		FColor(255, 0, 0),
+		false,
+		2.f,
+		0.f,
+		10.f
+	);
 	// ray-cast out to reach distance
 
 	// see what we hit
