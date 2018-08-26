@@ -46,6 +46,7 @@ void UGrabber::BeginPlay()
 		//physics handle is found
 		UE_LOG(LogTemp, Warning, TEXT("input Component is included"));
 		InputComponent->BindAction("Grab", IE_Pressed, this, &UGrabber::Grab);
+		InputComponent->BindAction("Grab", IE_Released, this, &UGrabber::Release);
 	}
 	else
 	{
@@ -58,6 +59,11 @@ void UGrabber::BeginPlay()
 void UGrabber::Grab()
 {
 	UE_LOG(LogTemp, Warning, TEXT(" Grab pressed"));
+}
+
+void UGrabber::Release()
+{
+	UE_LOG(LogTemp, Warning, TEXT(" Grab released"));
 }
 
 
