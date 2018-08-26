@@ -46,6 +46,12 @@ private:
 
 	// setup input component
 	void SetupInputComponent();
+	
+	// returns current end of reach line
+	FVector GetReachLineEnd();
+
+	// returns current start of reach line
+	FVector GetReachLineStart();
 
 	// Return hit for first physics body in reach
 	const FHitResult GetFirstPhysicsBodyInReach();
